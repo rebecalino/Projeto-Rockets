@@ -1,0 +1,169 @@
+* {
+    /* o asterisco é informações universais do site, ou seja, o que eu quero de lei universal aqui. */
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+  }
+  :root{
+    --text-color: #030303;
+    --back: rgba(65,65,65,0.3);
+    --border: rgba(27,12,36,0.2);
+    --border-1: rgba(27, 12, 36, 0.5);
+    --switch: url(./assets/sol-light.svg);
+  }
+  .dark{
+    --text-color: white;
+    --back: rgb(121, 116, 116);
+    --border: rgb(165, 164, 164);
+    --border-1: grey;
+    --switch: url(./assets/lua-dark.svg);
+  }
+  body {
+    /* corpo do meu site, é o que vai aparecer no site*/
+    background: var(--back);
+    /* background é um tipo de propriedade dentro do css. 
+    background image - background repeat - background position - background size*/
+    height: 100%;
+  }
+  
+  body * {
+    /* essa informação com asterisco significa que as propriedades que se encontram dentro do body vão ter essas características*/
+    font-family: "Inter", sans-serif; /* é a fonte da página. esse code pode procurar no fonts google */
+    color: var(--text-color); /* a cor das letras. não entendi porque não bota alguma coisa tipo letter-color, né? preciso pesquisar depois */
+  
+  }
+  
+  #container {
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0px 24px;
+    
+  }
+  
+  #profile {
+    text-align: center; /* alinha o texto*/
+    padding: 24px;
+  }
+  /*quando você quer mexer em uma tag que está dentro de outra, é só você colocar a especificidade em que ela se encontra + o que quer como atributo */
+  #profile img {
+    width: 112px;
+  }
+  
+  #profile p {
+    font-weight: 600; /* se eu bem me lembro, é o quanto você quer escurecer a fonte. quanto maior o número, mais a fonte fica em negrito. se quiser clarear, é só diminuir. */
+    font-size: 16px; /*tamanho da fonte*/
+    line-height: 24px; /*espaçamento entre as linhas*/
+    margin-top: 8px;
+  }
+  
+  #switch { 
+    position: relative;
+    width: 64px;
+    height: 24px;
+    margin: 4px auto;
+  }
+  #switch button{
+    background: white var(--switch) no-repeat center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    transform: translateY(-50%);
+    top: 50%;
+    animation: slide-back 0.2s;
+  }
+  
+  .dark #switch button{ 
+  animation: slide-in 0.2s forwards;
+  }
+  
+  
+  #switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--border);
+    border: 1px solid var(--border-1);
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  
+  ul {
+    list-style: none; /*é o que você quer botar colocar em sua lista. aquele pontinho que fica quando você lista algo*/
+    display: flex; /*o display flex é uma forma de você tornar sua caixa flexível para seu site.*/
+    flex-direction: column; /* um display flex, originalmente, já tem uma direction row, no caso, uma ao lado da outra, então, em casos de deixar ao lado, não há necessidade em colocar essa propriedade, apenas quando você quiser que esteja em coluna.*/
+    gap: 16px; /*distância entre as linhas no flex?? ele só espaça entre as colunas.*/
+    padding: 24px 0;
+    
+  }
+  /*quando você quer mexer em uma tag que está dentro de outra, é só você colocar a especificidade em que ela se encontra + o que quer como atributo (podem ser um ou mais) */
+  ul li a {
+    display: flex;
+    justify-content: center; /* alinha o texto na origem do eixo y, quando tratamos de flex */
+    align-items: center; /* alinha o texto na origem do eixo x (eles chamam de main), quando tratamos de flex */
+    background: rgba(253, 252, 253, 0.2);
+    padding: 16px 24px;
+    border: 2px solid var(--border);
+    border-radius: 6px; /*curvatura da borda */
+    backdrop-filter: blur(4px); /*é um modo para deixar o background meio embaçado*/
+    -webkit-backdrop-filter: blur(4px); /*esse webkit foi usado pois um dos servidores de internet não aceita essa propriedade no geral, só aceita com "webkit" na frente. logo, ele será colocado por isso */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 15px;
+    transition: background 0.3s; /* pode suavizar as transações de algo pra outro. a propriedade é o que você quer transicionar e em quanto tempo você quer que isso aconteça */
+  }
+  
+  ul li a:hover {
+    /* é a edição para quando a gente passa o mouse por cima*/
+    background: rgba(253,252,253,0.4);
+    border: 2px solid var(--border-1);
+  }
+  
+  #social-links{ 
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    padding: 16px 0;
+  }
+  
+  #social-links a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s;
+    padding: 16px;
+    border-radius: 50%;
+  }
+  
+  #social-links a:hover{
+    background: rgba(0, 0, 0, 0.2);
+  }
+  footer{
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  @keyframes slide-in {
+    from{
+      left: 0;
+    }
+    to{
+      left: 50%;
+    }
+  }
+  
+  @keyframes slide-back{
+    from{
+      left: 50%;
+    }
+    to{
+      left: 0;
+    }
+  }
+  
